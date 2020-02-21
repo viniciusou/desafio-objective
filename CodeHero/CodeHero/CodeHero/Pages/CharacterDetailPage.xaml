@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:CodeHero.Helpers"
+             mc:Ignorable="d"
+             x:Class="CodeHero.Pages.CharacterDetailPage"
+             Title="{Binding Character.Name}">
+    <ContentPage.Resources>
+        <local:ImageConverter x:Key="ImageConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Image Source="{Binding Character.ImageUrl, Converter={StaticResource ImageConverter}}" HeightRequest="220" WidthRequest="220" />
+            <Label Text="{Binding Character.Description}" Margin="30" FontSize="Body" HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

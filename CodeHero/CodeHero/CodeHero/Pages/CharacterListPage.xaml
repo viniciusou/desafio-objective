@@ -28,6 +28,7 @@
             <ListView x:Name="lvwCharacters"
                 ItemsSource="{Binding Characters}"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                SelectedItem="{Binding SelectedCharacter}"      
                 IsPullToRefreshEnabled="False"
                 HasUnevenRows="True"
                 IsGroupingEnabled="False"

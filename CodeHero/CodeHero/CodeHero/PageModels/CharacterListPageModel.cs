@@ -26,13 +26,22 @@ namespace CodeHero.PageModels
             set { isBusy = value; }
         }
 
+        private Character selectedCharacter;
+        public Character SelectedCharacter
+        {
+            get { return selectedCharacter; }
+            set { selectedCharacter = value; SelectCharacterPageModel(value); }
+        }
+
         public ICommand LoadCharactersCommand { get; }
+
+        public ICommand SelectCharacterCommand { get; private set; }
 
         public CharacterListPageModel(IApiService IApiService)
         {
+            _iApiService = IApiService;
             LoadCharactersCommand = new Command<int>((int offset) => LoadCharacters(offset));
             Characters = new ObservableRangeCollection<Character>();
-            _iApiService = IApiService;
         }
 
         public override void Init(object initData)
@@ -59,6 +68,11 @@ namespace CodeHero.PageModels
             });
           
             IsBusy = false;
+        }
+
+        private void SelectCharacterPageModel(Character character)
+        {
+            CoreMethods.PushPageModel<CharacterDetailPageModel>(character);
         }
     }
 }

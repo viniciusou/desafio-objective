@@ -4,13 +4,13 @@ Aplicativo mobile para busca de personagens Marvel. Teste de desenvolvimento pro
 
 
 ## Demo
-
+<p align="center">
 ![CodeHero Demo](Video/codeheroapp.gif)
+</p>
 
+## Visão Geral
 
-# Visão Geral
-
-Aplicativo desenvolvido em Xamarin com base nas especificações técnicas do Projeto Code Hero. Não foi possível desenvolver a paginação numerada conforme especificações. Como alternativa, foi desenvolvida uma listagem com scroll infinito para apresentação de mais personagens. O aplicativo conta com filtro por nome e tela de detalhes de personagem.   
+Aplicativo desenvolvido em Xamarin com base nas especificações técnicas do Projeto Code Hero. Não foi possível desenvolver a paginação numerada conforme especificações. Como alternativa, foi desenvolvida uma listagem com scroll infinito para apresentação de mais personagens. O aplicativo conta também com filtro por nome e tela de detalhes de personagem.   
 
 
 ## Plataformas

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:CodeHero.Helpers"
+             xmlns:customs="clr-namespace:CodeHero.Customs"
+             mc:Ignorable="d"
+             x:Class="CodeHero.Pages.CharacterListPage"
+             Title="BUSCA MARVEL">
+    <ContentPage.Resources>
+        <local:ImageConverter x:Key="ImageConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Label Text="Nome do Personagem" Margin="20, 12, 20, 0" TextColor="#D42026" />
+            <Frame Padding="0" Margin="20,0,20,12" BackgroundColor="White" HasShadow="False" BorderColor="LightGray" CornerRadius="4" HeightRequest="30">
+                <customs:CustomSearchBar x:Name="sbrCharacters" />
+            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <BoxView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="#D42026"/>
+                <Label Text="Nome" Grid.Row="0" Margin="90,10,0,10" TextColor="White" />
+            </Grid>
+            <ListView x:Name="lvwCharacters"
+                ItemsSource="{Binding Characters}"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}" 
+                IsPullToRefreshEnabled="False"
+                HasUnevenRows="True"
+                IsGroupingEnabled="False"
+                SeparatorColor="#D42026">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HeightRequest="90" BackgroundColor="White">
+                                <controls:CircleImage Source="{Binding ImageUrl, Converter={StaticResource ImageConverter}}" Margin="18,18,0,18" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" />
+                                <Label Text="{Binding Name}" FontSize="Medium" VerticalOptions="Center" Margin="18,0,0,0" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <BoxView  HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="12" BackgroundColor="#D42026"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

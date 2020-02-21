@@ -4,9 +4,9 @@ Aplicativo mobile para busca de personagens Marvel. Teste de desenvolvimento pro
 
 
 ## Demo
-<p align="center">
+
 ![CodeHero Demo](Video/codeheroapp.gif)
-</p>
+
 
 ## Visão Geral
 
